@@ -165,6 +165,19 @@
                         height="400px" frameborder="0" title="Calendário de Agendamento">
                     </iframe>
                 </div>
+
+                <div id="agendamento-form">
+                    <div class="input-group">
+                        <input type="text" id="data-reuniao" placeholder="Data da Reunião" />
+                        <input type="text" id="horario-reuniao" placeholder="Horário da Reunião" />
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="closer" placeholder="Nome do Closer" />
+                    </div>
+                    <button id="copiar-dados">Copiar Dados</button>
+                    <button id="enviar-resumo">Enviar Resumo</button>
+                </div>
+            
             </div>
 
             <!-- Mudança de Fase -->
@@ -223,6 +236,7 @@
                 <label for="phone-filter">Filtrar por final do telefone:</label>
                 <input type="text" id="phone-filter" placeholder="Ex: 4321" maxlength="4">
             </div>
+            <br>
 
             <div id="contact-list"></div>
         </div>

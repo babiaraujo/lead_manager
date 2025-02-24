@@ -68,9 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { nome: "Maria Oliveira", escola: "Tecnologia", telefone: "(11) 99765-4321", status: "Não Conectado" },
             { nome: "Carlos Santos", escola: "Dados", telefone: "(21) 98456-7890", status: "Não Conectado" }
         ];
-
         
-
         contatos.forEach(contato => {
             const contatoCard = document.createElement("div");
             contatoCard.classList.add("contact-card");
@@ -99,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Botão de Agendamento
     const agendarBtn = document.getElementById("agendarBtn");
     const iframeContainer = document.getElementById("iframe-container");
+
 
     if (agendarBtn && iframeContainer) {
         agendarBtn.addEventListener("click", () => {
