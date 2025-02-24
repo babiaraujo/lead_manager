@@ -15,10 +15,10 @@
             <img src="../assets/logo.png" alt="Logo da DNC" class="logo" />
         </div>
 
-        <!-- Exibir o time selecionado -->
-        <div id="selected-team-container" class="selected-team">
-            <p>Time Selecionado: <span id="selected-team-name">Carregando...</span></p>
-        </div>
+        <!-- Exibição do usuário logado -->
+        <p id="user-info">
+            Time Selecionado: <span id="user-name">Carregando...</span> - <span id="user-team">...</span>
+        </p>
 
         <!-- Abas -->
         <div class="tabs">
@@ -29,184 +29,136 @@
         <!-- Conteúdo da Aba SDR -->
         <div id="sdr-tab-content" class="tab-content active">
             <h1>Gestão de Agendamentos - SDR</h1>
-
-            <!-- Informações do Lead -->
             <div class="input-group">
                 <input type="text" id="lead-name" placeholder="Nome do Lead" />
                 <input type="text" id="lead-link" placeholder="Link do Card do Lead" />
-                <button id="abrir-card">Abrir Card</button>
+                <button type="button" id="abrir-card">Abrir Card</button>
             </div>
 
-            <!-- Fases de Qualificação -->
             <!-- Gerador de Pitchs -->
-            <br>
             <div class="checklist-section">
                 <h2>Gerador de Pitchs</h2>
-
-                <!-- Sondagem (Trabalho) -->
-                <br>
                 <div class="pitch-item">
                     <label for="fase-abertura">
                         <h3>Sondagem (Trabalho)</h3>
                     </label>
                     <textarea id="fase-abertura" placeholder="Texto genérico para a fase de Abertura"></textarea>
                     <div class="button-container">
-                        <button class="btn-gerar-pitch">Gerar Pitch</button>
-                        <button class="btn-copiar">Copiar</button>
+                        <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
+                        <button type="button" class="btn-copiar">Copiar</button>
+                    </div>
+                    <!-- Situação de Trabalho -->
+                    <div class="pitch-item">
+                        <label for="trabalhando-desempregado">Situação de Trabalho</label>
+                        <select id="trabalhando-desempregado">
+                            <option value="trabalhando">Trabalhando</option>
+                            <option value="desempregado">Desempregado</option>
+                        </select>
+                        <div class="button-container">
+                            <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
+                            <button type="button" class="btn-copiar">Copiar</button>
+                        </div>
+                    </div>
+
+                    <!-- Objetivo Profissional -->
+                    <div class="pitch-item">
+                        <label for="objetivo-profissional">
+                            <h3>Objetivo Profissional</h3>
+                        </label>
+                        <textarea id="objetivo-profissional" placeholder="Objetivo do lead"></textarea>
+                        <div class="button-container">
+                            <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
+                            <button type="button" class="btn-copiar">Copiar</button>
+                        </div>
+                    </div>
+
+                    <!-- Confirmação de Objetivo Profissional -->
+                    <div class="pitch-item">
+                        <label for="confirmacao-objetivo">Confirmação de Objetivo Profissional</label>
+                        <select id="confirmacao-objetivo">
+                            <option value="transicao">Transição de Carreira</option>
+                            <option value="empregabilidade">Empregabilidade</option>
+                            <option value="aumento-performance">Aumento de Performance</option>
+                        </select>
+                    </div>
+
+                    <!-- Prioridade -->
+                    <div class="pitch-item">
+                        <label for="prioridade">
+                            <h3>Prioridade</h3>
+                        </label>
+                        <textarea id="prioridade" placeholder="Texto genérico sobre a prioridade"></textarea>
+                        <div class="button-container">
+                            <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
+                            <button type="button" class="btn-copiar">Copiar</button>
+                        </div>
+                    </div>
+
+                    <!-- Confirmação de Prioridade -->
+                    <div class="pitch-item">
+                        <label for="confirmacao-prioridade">Confirmação de Prioridade</label>
+                        <select id="confirmacao-prioridade">
+                            <option value="imediata">Prioridade Imediata</option>
+                            <option value="futuro">Interesse Futuro</option>
+                        </select>
+                    </div>
+
+                    <!-- Investimento -->
+                    <div class="pitch-item">
+                        <label for="investimento">
+                            <h3>Investimento</h3>
+                        </label>
+                        <textarea id="investimento" placeholder="Texto sobre o investimento do lead"></textarea>
+                        <div class="button-container">
+                            <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
+                            <button type="button" class="btn-copiar">Copiar</button>
+                        </div>
+                    </div>
+
+                    <!-- Confirmação de Investimento -->
+                    <div class="pitch-item">
+                        <label for="confirmacao-investimento">Confirmação de Investimento</label>
+                        <select id="confirmacao-investimento">
+                            <option value="preparou-financeiro">Se Preparou Financeiramente</option>
+                            <option value="preparou-ciente">Se Preparou e Está Ciente do Valor</option>
+                            <option value="nao-se-preparou">Não Se Preparou</option>
+                            <option value="depende-terceiros">Depende de Terceiros</option>
+                        </select>
+                    </div>
+
+                    <!-- Chamada para Reunião -->
+                    <div class="pitch-item">
+                        <label for="chamada-reuniao">
+                            <h3>Chamada para Reunião</h3>
+                        </label>
+                        <textarea id="chamada-reuniao" placeholder="Texto sobre a chamada para reunião"></textarea>
+                        <div class="button-container">
+                            <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
+                            <button type="button" class="btn-copiar">Copiar</button>
+                        </div>
+                    </div>
+
+                    <!-- Confirmação de Chamada para Reunião -->
+                    <div class="pitch-item">
+                        <label for="confirmacao-chamada">Confirmação de Chamada para Reunião</label>
+                        <select id="confirmacao-chamada">
+                            <option value="topou-meet">Topou Reunião via Meet</option>
+                            <option value="topou-whatsapp">Topou Reunião via WhatsApp</option>
+                        </select>
                     </div>
                 </div>
 
-                <!-- Situação de Trabalho -->
-                <br>
-                <div class="pitch-item">
-                    <label for="trabalhando-desempregado">Situação de Trabalho</label>
-                    <select id="trabalhando-desempregado">
-                        <option value="trabalhando">Trabalhando</option>
-                        <option value="desempregado">Desempregado</option>
-                    </select>
-                    <div class="button-container">
-                        <button class="btn-gerar-pitch">Gerar Pitch</button>
-                        <button class="btn-copiar">Copiar</button>
-                    </div>
-                </div>
-
-                <!-- Objetivo Profissional -->
-                <br>
-                <div class="pitch-item">
-                    <label for="objetivo-profissional">
-                        <h3>Objetivo Profissional</h3>
-                    </label>
-                    <textarea id="objetivo-profissional" placeholder="Objetivo do lead"></textarea>
-                    <div class="button-container">
-                        <button class="btn-gerar-pitch">Gerar Pitch</button>
-                        <button class="btn-copiar">Copiar</button>
-                    </div>
-                </div>
-
-                <!-- Confirmação de Objetivo Profissional -->
-                <br>
-                <div class="pitch-item">
-                    <label for="confirmacao-objetivo">Confirmação de Objetivo Profissional</label>
-                    <select id="confirmacao-objetivo">
-                        <option value="transicao">Transição de Carreira</option>
-                        <option value="empregabilidade">Empregabilidade</option>
-                        <option value="aumento-performance">Aumento de Performance</option>
-                    </select>
-                </div>
-
-                <br>
-                <!-- Prioridade -->
-                <div class="pitch-item">
-                    <label for="prioridade">
-                        <h3>Prioridade</h3< /label>
-                            <textarea id="prioridade" placeholder="Texto genérico sobre a prioridade"></textarea>
-                            <div class="button-container">
-                                <button class="btn-gerar-pitch">Gerar Pitch</button>
-                                <button class="btn-copiar">Copiar</button>
-                            </div>
-                </div>
-                <br>
-
-                <!-- Confirmação de Prioridade -->
-                <br>
-                <div class="pitch-item">
-                    <label for="confirmacao-prioridade">Confirmação de Prioridade</label>
-                    <select id="confirmacao-prioridade">
-                        <option value="imediata">Prioridade Imediata</option>
-                        <option value="futuro">Interesse Futuro</option>
-                    </select>
-                </div>
-
-                <!-- Investimento -->
-                <br>
-                <div class="pitch-item">
-                    <label for="investimento">
-                        <h3>Investimento</h3>
-                    </label>
-                    <textarea id="investimento" placeholder="Texto sobre o investimento do lead"></textarea>
-                    <div class="button-container">
-                        <button class="btn-gerar-pitch">Gerar Pitch</button>
-                        <button class="btn-copiar">Copiar</button>
-                    </div>
-                </div>
-
-                <!-- Confirmação de Investimento -->
-                <br>
-                <div class="pitch-item">
-                    <label for="confirmacao-investimento">Confirmação de Investimento</label>
-                    <select id="confirmacao-investimento">
-                        <option value="preparou-financeiro">Se Preparou Financeiramente</option>
-                        <option value="preparou-ciente">Se Preparou e Está Ciente do Valor</option>
-                        <option value="nao-se-preparou">Não Se Preparou</option>
-                        <option value="depende-terceiros">Depende de Terceiros</option>
-                    </select>
-                </div>
-
-                <!-- Chamada para Reunião -->
-                <br>
-                <div class="pitch-item">
-                    <label for="chamada-reuniao">
-                        <h3>Chamada para Reunião</h3>
-                    </label>
-                    <textarea id="chamada-reuniao" placeholder="Texto sobre a chamada para reunião"></textarea>
-                    <div class="button-container">
-                        <button class="btn-gerar-pitch">Gerar Pitch</button>
-                        <button class="btn-copiar">Copiar</button>
-                    </div>
-                </div>
-
-                <!-- Confirmação de Chamada para Reunião -->
-                <br>
-                <div class="pitch-item">
-                    <label for="confirmacao-chamada">Confirmação de Chamada para Reunião</label>
-                    <select id="confirmacao-chamada">
-                        <option value="topou-meet">Topou Reunião via Meet</option>
-                        <option value="topou-whatsapp">Topou Reunião via WhatsApp</option>
-                    </select>
-                </div>
             </div>
-
-
-            <!-- Passagem de Fase -->
             <!-- Seção de Agendamento -->
             <div class="checklist-section">
                 <h3>Agendamento</h3>
+                <button type="button" id="agendarBtn">Agendar</button>
 
-                <!-- Botão para abrir o calendário -->
-                <button id="agendarBtn" onclick="mostrarCamposAgendamento()">Agendar</button>
-
-                <!-- Iframe do calendário do HubSpot (inicialmente escondido) -->
-                <div id="iframe-container" style="display: none;">
+                <div id="iframe-container" class="hidden">
                     <iframe id="agendamento-iframe" src="https://meetings.hubspot.com/lucas-rana/teste" width="100%"
-                        height="400px" frameborder="0">
-                    </iframe>
-                </div>
-
-                <!-- Campos de Data, Hora e Closer (aparecem depois do iframe) -->
-                <div id="agendamento-form" style="display: none;">
-                    <div class="pitch-item">
-                        <label for="data-reuniao">Data da Reunião</label>
-                        <input type="date" id="data-reuniao">
-                    </div>
-
-                    <div class="pitch-item">
-                        <label for="horario-reuniao">Horário da Reunião</label>
-                        <input type="time" id="horario-reuniao">
-                    </div>
-
-                    <div class="pitch-item">
-                        <label for="closer">Closer</label>
-                        <input type="text" id="closer" placeholder="Nome do Closer">
-                    </div>
-
-                    <!-- Botões de ação -->
-                    <div class="button-container">
-                        <button id="copiar-dados">Copiar Dados</button>
-                        <button id="enviar-resumo">Enviar Resumo</button>
-                    </div>
+                        height="400px" frameborder="0" title="Calendário de Agendamento"></iframe>
                 </div>
             </div>
-
             <!-- Mudança de Fase -->
             <div class="checklist-section">
                 <h2>Mudança de Fase</h2>
@@ -216,14 +168,14 @@
                     <option value="nao-conectado-para-agendar-conectado">Não Conectado > Para Agendar Conectado</option>
                     <option value="nao-conectado-agendado">Não Conectado > Agendado</option>
                     <option value="para-agendar-sem-conexao-para-agendar-conectado">Para Agendar sem Conexão > Para
-                        Agendar Conectado</option>
+                        Agendar
+                        Conectado</option>
                     <option value="para-agendar-sem-conexao-agendado">Para Agendar sem Conexão > Agendado</option>
                     <option value="para-agendar-conectado-agendado">Para Agendar Conectado > Agendado</option>
                 </select>
-                <button id="mudar-fase">Mudar de Fase</button>
+                <button type="button" id="mudar-fase">Mudar de Fase</button>
             </div>
-
-            <!-- Ações no CRM -->
+            <!-- Registro de Atividade -->
             <div class="checklist-section">
                 <h2>Registro de Atividade</h2>
                 <select id="whatsapp-status">
@@ -232,70 +184,34 @@
                     <option value="ligacao-nao-conectado">Ligação Não conectado</option>
                     <option value="ligacao-conectado">Ligação Conectado</option>
                 </select>
-                <button id="registrar-atividade">Registrar Atividade</button>
+                <button type="button" id="registrar-atividade">Registrar Atividade</button>
             </div>
-
-
             <!-- Botões para limpar e subir -->
             <div class="button-container">
-                <button id="limpar" class="btn-limpar">Limpar</button>
-                <button id="subir" class="btn-subir">Subir</button>
+                <button type="button" id="limpar" class="btn-limpar">Limpar</button>
+                <button type="button" id="subir" class="btn-subir">Subir</button>
             </div>
+            <button type="button" id="logout-btn" class="logout-btn">Sair</button>
         </div>
 
-
-        <div id="produtividade-tab-content" class="tab-content">
-            <!-- Conteúdo da Aba Produtividade -->
+        <!-- Conteúdo da Aba Produtividade -->
+        <div id="produtividade-tab-content" class="tab-content hidden">
             <h1>Gestão de Agendamentos - Produtividade</h1>
-            <div id="contact-section">
-                <!-- Dropdown de Seleção de Status -->
-                <div class="input-group">
-                    <label for="status-crm">Escolha a Fase</label>
-                    <select id="status-crm">
-                        <option value="nao-contato">Não Contato</option>
-                        <option value="para-agendar">Para Agendar</option>
-                        <option value="agendado">Agendado</option>
-                        <option value="reuniao">Reunião</option>
-                        <option value="aguardando-resposta">Aguardando Resposta</option>
-                        <option value="aguardando-pagamento">Aguardando Pagamento</option>
-                    </select>
-                </div>
-                <button id="update-crm">Puxar do CRM</button>
-                <br>
-                <br>
-                <h3>Contatos</h3>
-                <!-- Filtro por final de telefone -->
-                <div class="phone-filter-container">
-                    <label for="phone-filter">Filtrar por final do telefone:</label>
-                    <input type="text" id="phone-filter" placeholder="Ex: 4321" maxlength="4">
-                </div>
-                <br>
-
-                <div id="contact-list"></div>
+            <div class="input-group">
+                <label for="status-crm">Escolha a Fase</label>
+                <select id="status-crm">
+                    <option value="nao-contato">Não Contato</option>
+                    <option value="para-agendar">Para Agendar</option>
+                    <option value="agendado">Agendado</option>
+                </select>
             </div>
-
-            <!-- <button id="registrar-atividade">Registrar Atividade</button> -->
+            <button type="button" id="update-crm">Puxar do CRM</button>
+            <h3>Contatos</h3>
+            <div id="contact-list"></div>
         </div>
     </div>
 
     <script src="../popup/popup.js"></script>
-    <script>
-        // Função para exibir campos de agendamento
-        function mostrarCamposAgendamento() {
-            document.getElementById("agendamento-form").style.display = "block";
-            document.getElementById("iframe-container").style.display = "block";
-        }
-
-        // Função para carregar o time selecionado
-        document.addEventListener('DOMContentLoaded', function () {
-            const selectedTeam = localStorage.getItem('selectedTeam');
-            if (selectedTeam) {
-                document.getElementById('selected-team-name').textContent = selectedTeam;
-            } else {
-                document.getElementById('selected-team-name').textContent = 'Nenhum time selecionado';
-            }
-        });
-    </script>
 </body>
 
 </html>

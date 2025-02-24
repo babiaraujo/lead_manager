@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="../assets/logo.png" alt="Logo" class="logo">
+        <h2>Cadastro</h2>
+        <form id="registerForm">
+            <input type="text" id="name" placeholder="Nome" required />
+            <input type="email" id="email" placeholder="E-mail" required />
+            <select id="team">
+                <option value="All Blacks">All Blacks</option>
+                <option value="Invictus">Invictus</option>
+                <option value="Falcons">Falcons</option>
+                <option value="Sharks">Sharks</option>
+            </select>
+            <select id="type">
+                <option value="CLOSER">Closer</option>
+                <option value="SDR">SDR</option>
+            </select>
+            <input type="text" id="phone" placeholder="Telefone" required />
+            <input type="password" id="password" placeholder="Senha" required />
+            <button type="submit">Cadastrar</button>
+        </form>
+        <button id="backToLogin" class="secondary-btn">Voltar</button>
+    </div>
+
+    <script src="../scripts/register.js"></script>
+</body>
+</html>

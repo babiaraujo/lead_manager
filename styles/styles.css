@@ -366,5 +366,33 @@ button.btn-copiar:hover {
   box-sizing: border-box;
 }
 
+.login-logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 120px;
+}
+
+.logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: auto; /* Para não ficar enorme */
+  display: block;
+  margin: 10px auto; /* Centralizar */
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  background-color: #e60000;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
 
 

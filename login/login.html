@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/styles.css">
     <title>Login</title>
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
-
 <body>
-    <h2>Login</h2>
-    <form id="loginForm">
-        <input type="text" id="username" placeholder="Usuário" required />
-        <input type="password" id="password" placeholder="Senha" required />
-        <button type="submit">Entrar</button>
-    </form>
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function (event) {
-            event.preventDefault();
+    <div class="container">
+        <img src="../assets/logo.png" alt="Logo" class="logo">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="E-mail" required />
+            <input type="password" id="password" placeholder="Senha" required />
+            <button type="submit">Entrar</button>
+        </form>
+        <p id="error-message" class="error-message" style="display:none;">E-mail ou senha incorretos!</p>
+        <button id="register-btn" class="secondary-btn">Cadastrar</button>
+    </div>
 
-            // Simulando um login bem-sucedido
-            localStorage.setItem('loggedIn', 'true');
-            // Redirecionando para a tela de seleção de time
-            window.location.href = '../team-selection/team-selection.html';
-
-        });
-    </script>
+    <script src="login.js"></script>
 </body>
-
 </html>

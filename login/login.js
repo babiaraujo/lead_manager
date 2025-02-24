@@ -1,24 +1,45 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const loginButton = document.querySelector('button[type="submit"]');
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("loginForm");
 
-    // Adiciona evento de clique no botão de login
-    loginButton.addEventListener('click', function (event) {
+    // Verifica se já está logado
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = localStorage.getItem("token");
+
+    if (user && token) {
+        window.location.href = "../popup/popup.html"; // Redireciona se já estiver logado
+        return;
+    }
+
+    loginForm.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
 
-        if (username === "" || password === "") {
-            alert("Por favor, preencha todos os campos.");
-            return;
-        }
+        try {
+            const response = await fetch("http://localhost:4000/leads/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            });
 
-        if (username === "admin" && password === "1234") { // Usuário e senha fixos como exemplo
-            localStorage.setItem('userLoggedIn', true);
-            window.location.href = "../team-selection/team-selection.html";
-        } else {
-            const errorMessage = document.getElementById('error-message');
-            errorMessage.style.display = 'block';
+            const data = await response.json();
+
+            if (response.ok) {
+                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("token", data.token);
+                window.location.href = "../popup/popup.html"; 
+            } else {
+                document.getElementById("error-message").style.display = "block";
+            }
+        } catch (error) {
+            console.error("❌ Erro ao fazer login:", error);
         }
+    });
+
+    document.getElementById("register-btn").addEventListener("click", () => {
+        window.location.href = "../pages/register.html";
     });
 });
