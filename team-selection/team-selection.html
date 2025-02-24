@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Seleção de Time</title>
+</head>
+<body>
+    <h2>Selecione seu Time</h2>
+    <select id="teamSelect">
+        <option value="All Blacks">All Blacks</option>
+        <option value="Falcons">Falcons</option>
+        <option value="Invictus">Invictus</option>
+        <option value="Sharks">Sharks</option>
+    </select>
+    <button id="confirmTeamBtn">Confirmar</button>
+
+    <script>
+        document.getElementById('confirmTeamBtn').addEventListener('click', function() {
+            const selectedTeam = document.getElementById('teamSelect').value;
+            localStorage.setItem('selectedTeam', selectedTeam);  // Armazena o time selecionado
+            window.location.href = '../popup/popup.html';  // Redireciona para o popup
+        });
+    </script>
+</body>
+</html>

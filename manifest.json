@@ -1,0 +1,35 @@
+{
+  "name": "Gestão de Agendamentos",
+  "description": "Extensão para facilitar o agendamento e controle de leads.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["storage", "scripting", "activeTab"],
+  "host_permissions": [
+    "https://app.hubspot.com/*",
+    "https://meetings.hubspot.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://app.hubspot.com/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/icon.png", "assets/icon16.png", "assets/icon48.png", "assets/icon128.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
