@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Agendamentos</title>
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
@@ -34,128 +35,145 @@
             <div class="checklist-section">
                 <h2>Gerador de Pitchs</h2>
                 <br>
+                <!-- Sondagem (Trabalho) -->
                 <div class="pitch-item">
                     <label for="fase-abertura">
                         <h3>Sondagem (Trabalho)</h3>
                     </label>
-                    <textarea id="fase-abertura" placeholder="Texto genérico para a fase de Abertura"></textarea>
+                    <textarea id="fase-abertura" readonly></textarea>
                     <div class="button-container">
-                        <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
-                        <button type="button" class="btn-copiar">Copiar</button>
-                    </div>
-                    <!-- Situação de Trabalho -->
-                    <div class="pitch-item">
-                        <br>
-                        <label for="trabalhando-desempregado">Situação de Trabalho</label>
-                        <select id="trabalhando-desempregado">
-                            <option value="trabalhando">Trabalhando</option>
-                            <option value="desempregado">Desempregado</option>
-                        </select>
-                        <div class="button-container">
-                            <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
-                            <button type="button" class="btn-copiar">Copiar</button>
-                        </div>
-                    </div>
-
-                    <!-- Objetivo Profissional -->
-                    <div class="pitch-item">
-                        <label for="objetivo-profissional">
-                            <br>
-                            <h3>Objetivo Profissional</h3>
-                        </label>
-                        <textarea id="objetivo-profissional" placeholder="Objetivo do lead"></textarea>
-                        <div class="button-container">
-                            <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
-                            <button type="button" class="btn-copiar">Copiar</button>
-                        </div>
-                    </div>
-
-                    <!-- Confirmação de Objetivo Profissional -->
-                    <div class="pitch-item">
-                        <br>
-                        <label for="confirmacao-objetivo">Confirmação de Objetivo Profissional</label>
-                        <select id="confirmacao-objetivo">
-                            <option value="transicao">Transição de Carreira</option>
-                            <option value="empregabilidade">Empregabilidade</option>
-                            <option value="aumento-performance">Aumento de Performance</option>
-                        </select>
-                    </div>
-
-                    <!-- Prioridade -->
-                    <div class="pitch-item">
-                        <label for="prioridade">
-                            <br>
-                            <h3>Prioridade</h3>
-                        </label>
-                        <textarea id="prioridade" placeholder="Texto genérico sobre a prioridade"></textarea>
-                        <div class="button-container">
-                            <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
-                            <button type="button" class="btn-copiar">Copiar</button>
-                        </div>
-                    </div>
-
-                    <!-- Confirmação de Prioridade -->
-                    <div class="pitch-item">
-                        <br>
-                        <label for="confirmacao-prioridade">Confirmação de Prioridade</label>
-                        <select id="confirmacao-prioridade">
-                            <option value="imediata">Prioridade Imediata</option>
-                            <option value="futuro">Interesse Futuro</option>
-                        </select>
-                    </div>
-
-                    <!-- Investimento -->
-                    <div class="pitch-item">
-                        <label for="investimento">
-                            <br>
-                            <h3>Investimento</h3>
-                        </label>
-                        <textarea id="investimento" placeholder="Texto sobre o investimento do lead"></textarea>
-                        <div class="button-container">
-                            <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
-                            <button type="button" class="btn-copiar">Copiar</button>
-                        </div>
-                    </div>
-
-                    <!-- Confirmação de Investimento -->
-                    <div class="pitch-item">
-                        <br>
-                        <label for="confirmacao-investimento">Confirmação de Investimento</label>
-                        <select id="confirmacao-investimento">
-                            <option value="preparou-financeiro">Se Preparou Financeiramente</option>
-                            <option value="preparou-ciente">Se Preparou e Está Ciente do Valor</option>
-                            <option value="nao-se-preparou">Não Se Preparou</option>
-                            <option value="depende-terceiros">Depende de Terceiros</option>
-                        </select>
-                    </div>
-
-                    <!-- Chamada para Reunião -->
-                    <div class="pitch-item">
-                        <label for="chamada-reuniao">
-                            <br>
-                            <h3>Chamada para Reunião</h3>
-                        </label>
-                        <textarea id="chamada-reuniao" placeholder="Texto sobre a chamada para reunião"></textarea>
-                        <div class="button-container">
-                            <button type="button" class="btn-gerar-pitch">Gerar Pitch</button>
-                            <button type="button" class="btn-copiar">Copiar</button>
-                        </div>
-                    </div>
-
-                    <!-- Confirmação de Chamada para Reunião -->
-                    <div class="pitch-item">
-                        <br>
-                        <label for="confirmacao-chamada">Confirmação de Chamada para Reunião</label>
-                        <select id="confirmacao-chamada">
-                            <option value="topou-meet">Topou Reunião via Meet</option>
-                            <option value="topou-whatsapp">Topou Reunião via WhatsApp</option>
-                        </select>
+                        <button type="button" class="btn-icon btn-gerar-pitch" data-target="fase-abertura"
+                            title="Gerar Pitch">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                        <button type="button" class="btn-icon btn-copiar" data-target="fase-abertura" title="Copiar">
+                            <i class="fas fa-copy"></i>
+                        </button>
                     </div>
                 </div>
-
             </div>
-            <!-- Seção de Agendamento -->
+
+            <!-- Situação de Trabalho -->
+            <div class="pitch-item">
+                <br>
+                <label for="trabalhando-desempregado">Situação de Trabalho</label>
+                <select id="trabalhando-desempregado">
+                    <option value="trabalhando">Trabalhando</option>
+                    <option value="desempregado">Desempregado</option>
+                </select>
+            </div>
+
+            <!-- Objetivo Profissional -->
+            <div class="pitch-item">
+                <label for="objetivo-profissional">
+                    <br>
+                    <h3>Objetivo Profissional</h3>
+                </label>
+                <textarea id="objetivo-profissional" readonly></textarea>
+                <div class="button-container">
+                    <button type="button" class="btn-icon btn-gerar-pitch" data-target="objetivo-profissional"
+                        title="Gerar Pitch">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button type="button" class="btn-icon btn-copiar" data-target="objetivo-profissional"
+                        title="Copiar">
+                        <i class="fas fa-copy"></i>
+                </div>
+            </div>
+
+            <!-- Confirmação de Objetivo Profissional -->
+            <div class="pitch-item">
+                <br>
+                <label for="confirmacao-objetivo">Confirmação de Objetivo Profissional</label>
+                <select id="confirmacao-objetivo">
+                    <option value="transicao">Transição de Carreira</option>
+                    <option value="empregabilidade">Empregabilidade</option>
+                    <option value="aumento-performance">Aumento de Performance</option>
+                </select>
+            </div>
+
+            <!-- Prioridade -->
+            <div class="pitch-item">
+                <label for="prioridade">
+                    <br>
+                    <h3>Prioridade</h3>
+                </label>
+                <textarea id="prioridade" readonly></textarea>
+                <div class="button-container">
+                    <button type="button" class="btn-icon btn-gerar-pitch" data-target="prioridade" title="Gerar Pitch">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button type="button" class="btn-icon btn-copiar" data-target="prioridade" title="Copiar">
+                        <i class="fas fa-copy"></i>
+                </div>
+            </div>
+
+            <!-- Confirmação de Prioridade -->
+            <div class="pitch-item">
+                <br>
+                <label for="confirmacao-prioridade">Confirmação de Prioridade</label>
+                <select id="confirmacao-prioridade">
+                    <option value="imediata">Prioridade Imediata</option>
+                    <option value="futuro">Interesse Futuro</option>
+                </select>
+            </div>
+
+
+            <!-- Investimento -->
+            <div class="pitch-item">
+                <label for="investimento">
+                    <br>
+                    <h3>Investimento</h3>
+                </label>
+                <textarea id="investimento" readonly></textarea>
+                <div class="button-container">
+                    <button type="button" class="btn-icon btn-gerar-pitch" data-target="investimento"
+                        title="Gerar Pitch">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button type="button" class="btn-icon btn-copiar" data-target="investimento" title="Copiar">
+                        <i class="fas fa-copy"></i>
+                </div>
+            </div>
+
+            <div class="pitch-item">
+                <br>
+                <label for="confirmacao-investimento">Confirmação de Investimento</label>
+                <select id="confirmacao-investimento">
+                    <option value="preparou-financeiro">Se Preparou Financeiramente</option>
+                    <option value="preparou-ciente">Se Preparou e Está Ciente do Valor</option>
+                    <option value="nao-se-preparou">Não Se Preparou</option>
+                    <option value="depende-terceiros">Depende de Terceiros</option>
+                </select>
+            </div>
+
+            <!-- Chamada para a Reunião -->
+            <div class="pitch-item">
+                <label for="chamada-reuniao">
+                    <br>
+                    <h3>Chamada para a Reunião</h3>
+                </label>
+                <textarea id="chamada-reuniao" readonly></textarea>
+                <div class="button-container">
+                    <button type="button" class="btn-icon btn-gerar-pitch" data-target="chamada-reuniao"
+                        title="Gerar Pitch">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button type="button" class="btn-icon btn-copiar" data-target="chamada-reuniao" title="Copiar">
+                        <i class="fas fa-copy"></i>
+                </div>
+            </div>
+
+            <div class="pitch-item">
+                <br>
+                <label for="confirmacao-chamada">Confirmação de Chamada para Reunião</label>
+                <select id="confirmacao-chamada">
+                    <option value="topou-meet">Topou Reunião via Meet</option>
+                    <option value="topou-whatsapp">Topou Reunião via WhatsApp</option>
+                </select>
+            </div>
             <div class="checklist-section">
+                <br>
                 <h3>Agendamento</h3>
                 <button type="button" id="agendarBtn">Agendar</button>
 
@@ -177,7 +195,7 @@
                     <button id="copiar-dados">Copiar Dados</button>
                     <button id="enviar-resumo">Enviar Resumo</button>
                 </div>
-            
+
             </div>
 
             <!-- Mudança de Fase -->
@@ -194,7 +212,7 @@
                     <option value="para-agendar-sem-conexao-agendado">Para Agendar sem Conexão > Agendado</option>
                     <option value="para-agendar-conectado-agendado">Para Agendar Conectado > Agendado</option>
                 </select>
-                <button type="button" id="mudar-fase">Mudar de Fase</button>
+                <button type="button" class="btn-grande" id="mudar-fase">Mudar de Fase</button>
             </div>
             <!-- Registro de Atividade -->
             <div class="checklist-section">
@@ -215,31 +233,37 @@
             <button type="button" id="logout-btn" class="logout-btn">Sair</button>
         </div>
 
-        <!-- Conteúdo da Aba Produtividade -->
-        <div id="produtividade-tab-content" class="tab-content">
-            <h1>Gestão de Agendamentos - Produtividade</h1>
-            <div class="input-group">
-                <br>
-                <label for="status-crm">Escolha a Fase</label>
-                <select id="status-crm">
-                    <option value="nao-contato">Não Contato</option>
-                    <option value="para-agendar">Para Agendar</option>
-                    <option value="agendado">Agendado</option>
-                </select>
-            </div>
-            <button type="button" id="update-crm">Puxar do CRM</button>
-            <br>
-            <br>
-            <h2>Contatos</h2>
-            <!-- Filtro por final de telefone -->
-            <div class="phone-filter-container">
-                <label for="phone-filter">Filtrar por final do telefone:</label>
-                <input type="text" id="phone-filter" placeholder="Ex: 4321" maxlength="4">
-            </div>
-            <br>
+    </div>
+    </div>
 
-            <div id="contact-list"></div>
+
+    <!-- Seção de Agendamento -->
+
+    <!-- Conteúdo da Aba Produtividade -->
+    <div id="produtividade-tab-content" class="tab-content">
+        <h1>Gestão de Agendamentos - Produtividade</h1>
+        <div class="input-group">
+            <br>
+            <label for="status-crm">Escolha a Fase</label>
+            <select id="status-crm">
+                <option value="nao-contato">Não Contato</option>
+                <option value="para-agendar">Para Agendar</option>
+                <option value="agendado">Agendado</option>
+            </select>
         </div>
+        <button type="button" id="update-crm">Puxar do CRM</button>
+        <br>
+        <br>
+        <h2>Contatos</h2>
+        <!-- Filtro por final de telefone -->
+        <div class="phone-filter-container">
+            <label for="phone-filter">Filtrar por final do telefone:</label>
+            <input type="text" id="phone-filter" placeholder="Ex: 4321" maxlength="4">
+        </div>
+        <br>
+
+        <div id="contact-list"></div>
+    </div>
 
     </div>
 

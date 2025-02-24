@@ -1,6 +1,77 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Script carregado!");
 
+    // Lista de pitches para cada categoria
+    const pitches = {
+        "fase-abertura": [
+            "Atualmente, você está trabalhando ou em busca de uma nova oportunidade?",
+            "Você está trabalhando ou procura voltar para o mercado de trabalho?"
+        ],
+        "objetivo-profissional": [
+            "Você já trabalha na área X ou busca uma transição de carreira?",
+            "Você busca um aumento de performance na área que já trabalha ou pensa em fazer uma transição de carreira?"
+        ],
+        "prioridade": [
+            "Hoje é uma prioridade se dedicar pelo menos 30min por dia nos estudos?",
+            "Aumentar a performance ou voltar para o mercado de trabalho, é uma prioridade para você?"
+        ],
+        "investimento": [
+            "Como você se preparou financeiramente para fazer esse investimento? Só depende de você ou alguém vai te ajudar?",
+            "Você prefere fazer o investimento à vista ou parcelado?",
+            "As parcelas variam de R$ 199 a R$ 499, mas como a área X oferece diversas opções de curso, o ideal é agendar uma mentoria de carreira com um especialista para definir a melhor escolha de acordo com seus objetivos."
+        ],
+        "chamada-reuniao": [
+            "Com base nas informações que você me passou, o próximo passo é agendar sua mentoria de carreira com o especialista. Será uma reunião de aproximadamente 30 minutos via Meet, onde vamos alinhar suas expectativas, apresentar o conteúdo completo e ajustar as opções dentro do seu orçamento. Tenho disponibilidade às [horário] ou às [horário]. Qual horário fica melhor para você?",
+            "O próximo passo é agendar sua mentoria com o especialista em carreira. Será uma reunião de 30 minutos via Meet para alinhar pontos importantes e definir como podemos te ajudar a alcançar seu objetivo. Tenho disponibilidade às [horário] ou às [horário]. Qual horário você prefere?"
+        ]
+    };
+
+    // Índices para alternância entre pitches
+    let pitchIndices = {
+        "fase-abertura": 0,
+        "objetivo-profissional": 0,
+        "prioridade": 0,
+        "investimento": 0,
+        "chamada-reuniao": 0
+    };
+
+    // Função para gerar o próximo pitch
+    function gerarPitch(event) {
+        const target = event.target.getAttribute("data-target");
+        if (pitches[target]) {
+            pitchIndices[target] = (pitchIndices[target] + 1) % pitches[target].length;
+            document.getElementById(target).value = pitches[target][pitchIndices[target]];
+        }
+    }
+
+    // Função para copiar o pitch para a área de transferência
+    function copiarPitch(event) {
+        const target = event.target.getAttribute("data-target");
+        const textarea = document.getElementById(target);
+        if (textarea) {
+            navigator.clipboard.writeText(textarea.value)
+                .then(() => {
+                    alert("Texto copiado para a área de transferência!");
+                })
+                .catch(err => console.error("Erro ao copiar texto: ", err));
+        }
+    }
+
+    // Adiciona evento para os botões de gerar pitch
+    document.querySelectorAll(".btn-gerar-pitch").forEach(button => {
+        button.addEventListener("click", gerarPitch);
+    });
+
+    // Adiciona evento para os botões de copiar pitch
+    document.querySelectorAll(".btn-copiar").forEach(button => {
+        button.addEventListener("click", copiarPitch);
+    });
+
+    // Inicializa os pitches com a primeira opção
+    Object.keys(pitches).forEach(key => {
+        document.getElementById(key).value = pitches[key][0];
+    });
+
     const user = JSON.parse(localStorage.getItem("user"));
     const token = localStorage.getItem("token");
 
@@ -68,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { nome: "Maria Oliveira", escola: "Tecnologia", telefone: "(11) 99765-4321", status: "Não Conectado" },
             { nome: "Carlos Santos", escola: "Dados", telefone: "(21) 98456-7890", status: "Não Conectado" }
         ];
-        
+
         contatos.forEach(contato => {
             const contatoCard = document.createElement("div");
             contatoCard.classList.add("contact-card");
